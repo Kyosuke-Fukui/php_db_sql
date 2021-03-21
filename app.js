@@ -79,7 +79,7 @@ async function getGraph_S(xArray, yArray) {
 }
 
 //損益計算
-var calcPL = function (xArray, yArray, sigarr) {
+var calcPL = function (xArray, yArray) {
   var sigarr = getDataSet(yArray)[3];
   var PL_tan = 0; //損益率
   var PL_fuku = 1; //損益率（幾何平均）
@@ -183,12 +183,12 @@ var calcPL = function (xArray, yArray, sigarr) {
 };
 
 //検証結果出力
-async function plot_PL(xArray, yArray, sigarr) {
-  var TR = calcPL(xArray, yArray, sigarr)[0];
-  var PL_tan = calcPL(xArray, yArray, sigarr)[1].toFixed(2);
-  var AVR_tan = calcPL(xArray, yArray, sigarr)[2].toFixed(2);
-  var PL_fuku = calcPL(xArray, yArray, sigarr)[3].toFixed(2);
-  var AVR_fuku = calcPL(xArray, yArray, sigarr)[4].toFixed(2);
+async function plot_PL(xArray, yArray) {
+  var TR = calcPL(xArray, yArray)[0];
+  var PL_tan = calcPL(xArray, yArray)[1].toFixed(2);
+  var AVR_tan = calcPL(xArray, yArray)[2].toFixed(2);
+  var PL_fuku = calcPL(xArray, yArray)[3].toFixed(2);
+  var AVR_fuku = calcPL(xArray, yArray)[4].toFixed(2);
 
   $("#pl").html(`<li>トレード回数：${TR}回</li>
   <li>総損益率
@@ -216,10 +216,10 @@ async function plot_PL(xArray, yArray, sigarr) {
     </table>
   </li>`);
 
-  var buyArr = calcPL(xArray, yArray, sigarr)[5];
-  var sellArr = calcPL(xArray, yArray, sigarr)[6];
-  var slArr = calcPL(xArray, yArray, sigarr)[7];
-  var tpArr = calcPL(xArray, yArray, sigarr)[8];
+  var buyArr = calcPL(xArray, yArray)[5];
+  var sellArr = calcPL(xArray, yArray)[6];
+  var slArr = calcPL(xArray, yArray)[7];
+  var tpArr = calcPL(xArray, yArray)[8];
 
   //売買のタイミングをグラフに描画
   await Plotly.plot("chart", [
