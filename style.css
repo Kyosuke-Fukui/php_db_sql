@@ -1,0 +1,48 @@
+#p1,
+#p2,
+#risk,
+#reward {
+  width: 50px;
+}
+
+#chart {
+  width: 1000px;
+  height: 500px;
+  margin: 10px auto;
+}
+
+#box {
+  width: 300px;
+  height: 500px;
+  margin: 10px auto;
+}
+
+form {
+  width: 500px;
+}
+
+#returnbtn {
+  width: 250px;
+  height: 30px;
+  margin: 10px auto 0 0;
+}
+
+#backtest {
+  margin: 10px auto 0 0;
+}
+
+#pl {
+  margin: 10px auto 0 0;
+}
+
+#bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.time,
+.time1,
+.time2 {
+  width: 165px;
+}
